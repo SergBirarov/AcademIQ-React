@@ -4,6 +4,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  padding: 0;
+ 
+
+}
+
+#root{
+  padding: 0;
+  
 }
 
 
@@ -14,18 +22,32 @@ body {
   min-width: 320px;
   min-height: 100vh;
   scroll-behavior: smooth;
+  background: linear-gradient(135deg, #003366, #008080, #40E0D0, #FF7F50);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
 }
 
 
 .landing-svg{
-  width: 100px;
-  height: 100px;
+  width: 20vw;
+  height: auto;
+  max-width: 256px;
+  max-height:256px ;
+  border-radius: 8px;  
   
 }
 
-.logo{
-  width: 200px;
-  height: 200px;
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+
+.landing-page-background {
+  
+  min-height: 100vh;
+}
+
 
 

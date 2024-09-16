@@ -1,17 +1,21 @@
 import React from 'react';
+import { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import {Grid2, Box, Typography, Paper } from '@mui/material';
-import SvgSection from '../components/common/landing/SvgSection'; // Import the SvgSection component
+import HeroSection from '../components/common/landing/HeroSection';
+import LandingButton from '../components/common/landing/LandingButton';
 
 
-const Section = ({ children, bgColor, animation }) => (
+const Section = ({ children, animation }) => (
     <Box
       sx={{
         height: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: bgColor,
         padding: 4,
+        backgroundColor: 'inherit',
       }}
       data-aos={animation} 
     >
@@ -35,89 +39,64 @@ const LandingPage = () => {
     useEffect(() => {
         Aos.init({
           duration: 1000,
-          once: true, 
+          once: false, 
+          easing: 'ease-in-out',
         });
       }, []);
 
 
   return (
-    <>
-      <Section bgColor="#003366" animation="fade-up">
-        <Grid2 item xs={12} md={6}>
-          <Box
-            component="img"
-            src="https://academiq-assets.s3.eu-north-1.amazonaws.com/welcome.svg"
-            alt="Welcome"
-            sx={{
-              width: '100%',
-              height: 'auto',
-            }}
-          />
-        </Grid2>
-        <Grid2 item xs={12} md={6}>
-          <Typography variant="h1" color="white" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
-            Welcome to AcademIQ
-          </Typography>
-        </Grid2>
-      </Section>
+    <Box
+      component="main"
+      className='landing-page-background'
+      sx={{
+        minHeight: '100vh',
+        width: '100%',
+      }}
+    >
+    <Section animation="fade-up">
+    <HeroSection />
+    </Section>
 
-      <Section bgColor="#FFFFFF" animation="fade-right">
-        <Grid2 item xs={12} md={6}>
-          <Box
-            component="img"
-            src="https://academiq-assets.s3.eu-north-1.amazonaws.com/time_landing.gif"
-            alt="Manage Courses"
-            sx={{
-              width: '100%',
-              height: 'auto',
-            }}
-          />
-        </Grid2>
-        <Grid2 item xs={12} md={6}>
-          <Typography variant="h2" color="text.primary" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
+    <Section animation="fade-right">
+      
+      <Typography variant="h2" color="text.primary" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
             Manage Your Courses Effectively
           </Typography>
-        </Grid2>
-      </Section>
+<Box
+        component="img"
+        src="https://academiq-assets.s3.eu-north-1.amazonaws.com/landing1.png"
+        alt="Manage Courses"
+        className='landing-svg'
+      />
+    </Section>
 
-      <Section bgColor="#40E0D0" animation="fade-left">
-        <Grid2 item xs={12} md={6}>
-          <Box
+    <Section animation="fade-left">
+    <Box
             component="img"
-            src="https://academiq-assets.s3.eu-north-1.amazonaws.com/inside_landing.gif"
+            src="https://academiq-assets.s3.eu-north-1.amazonaws.com/landing2.png"
             alt="Collaborate"
-            sx={{
-              width: '100%',
-              height: 'auto',
-            }}
+            className='landing-svg'
           />
-        </Grid2>
-        <Grid2 item xs={12} md={6}>
           <Typography variant="h2" color="text.primary" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
             Collaborate and Learn Seamlessly
           </Typography>
-        </Grid2>
-      </Section>
+           
+    </Section>
 
-      <Section bgColor="#FF7F50" animation="fade-up">
-        <Grid2 item xs={12} md={6}>
-          <Box
+    <Section animation="fade-up">
+    <Box
             component="img"
-            src="https://academiq-assets.s3.eu-north-1.amazonaws.com/studentA_landing.gif"
+            src="https://academiq-assets.s3.eu-north-1.amazonaws.com/landing3.png"
             alt="Join Community"
-            sx={{
-              width: '100%',
-              height: 'auto',
-            }}
+            className='landing-svg'
           />
-        </Grid2>
-        <Grid2 item xs={12} md={6}>
           <Typography variant="h2" color="text.primary" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
             Join Our Community
           </Typography>
-        </Grid2>
-      </Section>
-    </>
+          <LandingButton />
+    </Section>
+    </Box>
   );
 };
 
