@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import {
   Box,
   Grid2,
@@ -27,16 +27,7 @@ const ForgotPassword = ({ onBack }) => {
   const [email, setEmail] = React.useState("")
   const [id, setId] = React.useState("")
 
-  const [showPassword, setShowPassword] = React.useState(false);
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
-  const handleMouseUpPassword = (event) => {
-    event.preventDefault();
-  };
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     console.log("Email sent to", email, id)
@@ -176,7 +167,7 @@ const ForgotPassword = ({ onBack }) => {
             color="primary"
             sx={{ mb: 2, width: '100%' }}
           >
-            לחץ לקבלת קוד לאיפוס הססמה
+            לחץ לקבלת קישור לאיפוס הססמה
           </Button>
         </Grid2>
         <Grid2 item>

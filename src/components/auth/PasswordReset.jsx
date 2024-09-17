@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     Box,
     Grid2,
@@ -12,24 +12,70 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import InputAdornment from "@mui/material/InputAdornment";
 import LockIcon from "@mui/icons-material/Lock";
 import FilledInput from "@mui/material/FilledInput";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const PasswordReset = () => {
-    const [showPassword, setShowPassword] = React.useState(false);
-    const [password, setPassword] = React.useState("");
-    const [subPassword, setSubPassword] = React.useState("");
-    const [errorMsg, setErrorMgs] = React.useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [password, setPassword] = useState("");
+    const [subPassword, setSubPassword] = useState("");
+    const [errorMsg, setErrorMgs] = useState("");
+    const [resetToken, setResetToken] = useState("");
+
+    const [searchParams, setSearchParams] = useSearchParams();
+
+  const navigate = useNavigate();
+
+
     const handleClickShowPassword = () => {
         setShowPassword((show) => !show);
     };
 
-    const handleSubmit = () => {
-        //TODO
+    useEffect(() => {
+        const token = searchParams.get('token');
+        if (token) {
+            setResetToken(token);
+        }
+    }, [searchParams]);
 
-        if (password.length > 0) {
+    const handleSubmit = async () => {
+        console.log(resetToken);
+
+        if (password == undefined || password == "" || password.length < 8) {
             setErrorMgs("הסיסמה חייבת להיות לפחות 8 תווים");
         }
 
         if (password == subPassword) {
+
+            try {
+                const response = await fetch('http://misha-rn-test.somee.com/api/Password/reset', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        resetToken: resetToken,
+                        newPassword: password
+                    }),
+                    cache: 'no-cache',
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log(data);
+
+                    navigate("/login");
+
+                } else {
+                    const errorData = await response.json();
+                    console.log('Error:', errorData);
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+
+
+
             setErrorMgs("");
         } else {
             setErrorMgs("הסיסמות אינן תואמות");
@@ -102,7 +148,11 @@ const PasswordReset = () => {
                             שחזור סיסמה
                         </Box>
                     </Grid2>
-
+                    {errorMsg && (
+                        <Alert severity="error" sx={{ mt: 1 }}>
+                            {errorMsg}
+                        </Alert>
+                    )}
                     <Grid2 item xs={12}>
                         <FilledInput
                             onChange={(event) => setPassword(event.target.value)}
@@ -133,11 +183,7 @@ const PasswordReset = () => {
                                 </InputAdornment>
                             }
                         />
-                        {errorMsg && (
-                            <Alert severity="error" sx={{ mt: 1 }}>
-                                {errorMsg}
-                            </Alert>
-                        )}
+
                     </Grid2>
                     <Grid2 item xs={12}>
                         <FilledInput
@@ -153,11 +199,6 @@ const PasswordReset = () => {
                             }}
                             sx={{ mb: 2, backgroundColor: "background.paper" }}
                         />
-                        {errorMsg && (
-                            <Alert severity="error" sx={{ mt: 1 }}>
-                                {errorMsg}
-                            </Alert>
-                        )}
                     </Grid2>
                     <Grid2
                         item
