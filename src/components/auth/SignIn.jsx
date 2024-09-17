@@ -14,6 +14,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import FilledInput from "@mui/material/FilledInput";
 import { useAuth } from "../../../context/AuthContext";
 import { GetVw, GetVh, GetResponsiveFontSize } from "../../utils/GeneralHelpers";
+import { useNavigate } from "react-router-dom";
 
 
 const student = {
@@ -22,8 +23,8 @@ const student = {
   profileImage: "https://source.unsplash.com/random/100x100?sig=1",
   email: "jU9Q3@example.com",
   id: 1,
-  cityCode:1,
-  AddressL : "רחוב ישראל 1",
+  cityCode: 1,
+  AddressL: "רחוב ישראל 1",
   phone: '0541234567',
   schoolYear: "2022",
   Enrollment: "2022-2023",
@@ -33,6 +34,9 @@ const student = {
 const SignIn = ({ onForgotPassword }) => {
   const [userId, setUserId] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const { login } = useAuth();
+
+  const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -44,6 +48,7 @@ const SignIn = ({ onForgotPassword }) => {
   const handleMouseUpPassword = (event) => {
     event.preventDefault();
   };
+  
   const handleSubmit = async () => {
 
     try {
@@ -66,6 +71,8 @@ const SignIn = ({ onForgotPassword }) => {
         console.log(data);
         localStorage.setItem('token', data.token);
         localStorage.setItem('token_created', Date.now());
+        login(data.userData);
+        navigate("/home")
 
       } else {
         const errorData = await response.json();
@@ -180,13 +187,13 @@ const SignIn = ({ onForgotPassword }) => {
           }}
         >
           <IconButton sx={{ color: "secondary.main", mx: 1 }}>
-            <GoogleIcon />
+            {/* <GoogleIcon /> */}
           </IconButton>
           <IconButton sx={{ color: "secondary.main", mx: 1 }}>
-            <MicrosoftIcon />
+            {/* <MicrosoftIcon /> */}
           </IconButton>
           <IconButton sx={{ color: "secondary.main", mx: 1 }}>
-            <GitHubIcon />
+            {/* <GitHubIcon /> */}
           </IconButton>
         </Grid2>
         <Grid2

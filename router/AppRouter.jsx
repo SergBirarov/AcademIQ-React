@@ -8,6 +8,7 @@ import NotFoundPage from '../src/pages/NotFoundPage';
 import ListComponent from "../src/components/ListComponent";
 import TabPanel from "../src/components/TabPanel";
 import ChartsOverview from "../src/components/ChartsOverview";
+import PasswordReset from '../src/components/auth/PasswordReset';
 
 const AppRouter = () => {
 
@@ -17,6 +18,7 @@ const AppRouter = () => {
         <Route path="/1" element={<ChartsOverview />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/passwordreset" element={<PasswordReset />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/course/:id" element={<CoursePage />} />
         <Route path="*" element={<NotFoundPage />} />
