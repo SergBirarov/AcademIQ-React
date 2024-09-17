@@ -14,8 +14,8 @@ const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ChartsOverview />} />
-        <Route path="/1" element={<LandingPage />} />
+        <Route path="/1" element={<ChartsOverview />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/course/:id" element={<CoursePage />} />
