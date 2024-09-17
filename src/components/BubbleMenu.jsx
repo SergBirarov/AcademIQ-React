@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Box, styled } from '@mui/material';
+import { Button, Box, styled, Typography, Paper } from '@mui/material';
 import { GetVw, GetVh } from '../utils/GeneralHelpers';
 import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
@@ -7,13 +7,25 @@ import { motion } from "framer-motion";
 
 const BubbleMenu = () => {
     const [buttonSizes, setButtonSizes] = useState([
-        { id: 1, size: 100, position: { top: '10%', left: '10%' } },
-        { id: 2, size: 100, position: { top: '20%', left: '70%' } },
-        { id: 3, size: 100, position: { top: '50%', left: '20%' } },
-        { id: 4, size: 100, position: { top: '40%', left: '50%' } },
-        { id: 5, size: 100, position: { top: '65%', left: '75%' } },
-        { id: 6, size: 100, position: { top: '15%', left: '35%' } },
+        { id: 1, size: 100, position: { top: '70%', left: '10%' } },
+        { id: 2, size: 100, position: { top: '30%', left: '20%' } },
+        { id: 3, size: 100, position: { top: '55%', left: '30%' } },
+        { id: 4, size: 100, position: { top: '40%', left: '40%' } },
+        { id: 5, size: 100, position: { top: '20%', left: '55%' } },
+        { id: 6, size: 100, position: { top: '60%', left: '75%' } },
+        { id: 7, size: 100, position: { top: '10%', left: '80%' } },
     ]);
+
+    const svg = ['https://academiq-assets.s3.eu-north-1.amazonaws.com/a+plus.svg',
+        'https://academiq-assets.s3.eu-north-1.amazonaws.com/bell.svg',
+        'https://academiq-assets.s3.eu-north-1.amazonaws.com/book+with+pencil.svg',
+        'https://academiq-assets.s3.eu-north-1.amazonaws.com/calendar+2.svg',
+        'https://academiq-assets.s3.eu-north-1.amazonaws.com/gradeenvelope.svg',
+        'https://academiq-assets.s3.eu-north-1.amazonaws.com/home.svg',
+        'https://academiq-assets.s3.eu-north-1.amazonaws.com/student.svg',];
+
+    const lables = ['ציונים', 'מערכת', 'מטלות', 'לוח שנה', 'ניתוח ביצועים', 'בית', 'איזור אישי'];
+
 
     useEffect(() => {
         const fetchButtonSizes = async () => {
@@ -87,52 +99,76 @@ const BubbleMenu = () => {
     // };
 
     return (
-        <Box
+        <Paper
+      elevation={6}
       sx={{
         width: GetVw(900),
         height: GetVh(400),
         position: 'relative',
-        border: '3px solid black',
         borderRadius: '10px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'background.default',
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
       }}
     >
-      {buttonSizes.map((button) => (
-        <motion.div
-          key={button.id}
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          style={{
-            position: 'absolute',
-            top: button.position.top,
-            left: button.position.left,
-          }}
-        >
-          <Button
-            variant="contained"
-            onClick={() => handleButtonClick(button.id)}
-            sx={{
-              width: GetVw(button.size),
-              height: GetVh(button.size),
-              maxWidth: `${button.size * 2}px`,
-              maxHeight: `${button.size * 2}px`,
-              borderRadius: '50%',
-              position: 'absolute', 
-              top: button.position.top, 
-              left: button.position.left, 
-              transition: 'all 0.3s ease', 
-            }}
-          >
-            {button.id}
-          </Button>
-        </motion.div>
-      ))}
+      {buttonSizes.map((button, index) => (
+  <motion.div
+    key={button.id}
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5 }}
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+    style={{
+      position: 'absolute',
+      top: button.position.top,
+      left: button.position.left,
+    }}
+  >
+    <Box component={'button'}
+      onClick={() => handleButtonClick(button.id)}
+      sx={{
+        width: GetVw(button.size),
+        height: GetVh(button.size),
+        maxWidth: `${button.size * 2}px`,
+        maxHeight: `${button.size * 2}px`,
+        borderRadius: '50%',
+        cursor: 'pointer',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '10px',
+        position: 'absolute', 
+        top: button.position.top, 
+        left: button.position.left, 
+        transition: 'all 0.3s ease', 
+        backgroundColor: 'background.default',
+        border:'none'
+      }}
+    >
+      <Box
+        component="img"
+        src={svg[index]}
+        alt={`${lables[index]} icon`} 
+        sx={{
+          minWidth: GetVw(button.size),
+          minHeight: GetVh(button.size),
+          maxWidth: `${button.size * 2}px`,
+          maxHeight: `${button.size * 2}px`,
+        }}
+
+      />
+
+      <Typography variant="caption" sx={{ textAlign: 'center', color: 'text.primary', fontWeight: 'bold', marginTop: -3 }}>
+        {lables[index]} 
+      </Typography>
     </Box>
+  </motion.div>
+      ))}
+    </Paper>
     );
 };
 
