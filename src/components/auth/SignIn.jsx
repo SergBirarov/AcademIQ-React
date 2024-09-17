@@ -53,11 +53,12 @@ const SignIn = ({ onForgotPassword }) => {
         }),
         cache: 'no-cache',
       });
-      
+
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        //localStorage.setItem('token', data.token); 
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('token_created', Date.now());
 
       } else {
         const errorData = await response.json();
