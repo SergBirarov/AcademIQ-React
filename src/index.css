@@ -1,25 +1,12 @@
-:root {
-  font-synthesis: none;
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  padding: 0;
- 
-
-}
-
-
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  padding: 0;
-  background-color: #d0f2ef;
   
 }
 
@@ -36,7 +23,7 @@ body {
 .body-gradient {
 background: linear-gradient(135deg, #003366, #008080, #40E0D0, #FF7F50);
   background-size: 400% 400%;
-  animation: gradientAnimation 15s ease infinite;
+  animation: gradientAnimation 15s ease alternate infinite;
 }
 
 @keyframes gradientAnimation {
@@ -45,10 +32,6 @@ background: linear-gradient(135deg, #003366, #008080, #40E0D0, #FF7F50);
   100% { background-position: 0% 50%; }
 }
 
-.landing-page-background {
-  
-  min-height: 100vh;
-}
 
 
 

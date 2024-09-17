@@ -10,7 +10,7 @@ const Footer = () => {
         py: 4,
       }}
     >
-      <Container maxWidth="lg">
+      <Container sx={{ minWidth: '100vw', padding: 0 }}>
         <Grid2 container spacing={2} alignItems="center">
           <Grid2 item xs={12} sm={6} display="flex" alignItems="center">             
             <Box component="img" src={"https://academiq-assets.s3.eu-north-1.amazonaws.com/Academiq-title.png"} sx={{
