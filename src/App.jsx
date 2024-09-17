@@ -12,7 +12,7 @@ function App() {
     <ThemeProviderWrapper theme={theme}>
       <CssBaseline />
       <AppRouter />
-      <Footer />
+      {/* <Footer /> */}
     </ThemeProviderWrapper>
   )
 }
