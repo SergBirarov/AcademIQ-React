@@ -9,10 +9,6 @@
 
 }
 
-#root{
-  padding: 0;
-  
-}
 
 
 body {
@@ -22,6 +18,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   scroll-behavior: smooth;
+  padding: 0;
+  background-color: #d0f2ef;
   
 }
 

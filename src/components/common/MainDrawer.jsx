@@ -1,4 +1,5 @@
-import * as React from 'react';
+import * as React  from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import { Grid2 } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
@@ -73,7 +74,7 @@ const AdminMenu = () =>{
   )
 };
 
-export default function MainDrawer() {
+ function MainDrawer() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -110,3 +111,5 @@ export default function MainDrawer() {
     </Box>
   );
 }
+
+export default  MainDrawer;

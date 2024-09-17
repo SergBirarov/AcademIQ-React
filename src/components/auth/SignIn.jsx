@@ -1,29 +1,38 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Box,
   Grid2,
   TextField,
   Button,
   IconButton,
-  inputAdornmentClasses,
-  Typography,
 } from "@mui/material";
-import GoogleIcon from "@mui/icons-material/Google";
-import MicrosoftIcon from "@mui/icons-material/Microsoft";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import InputAdornment from "@mui/material/InputAdornment";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import LockIcon from "@mui/icons-material/Lock";
-import FormControl from "@mui/material/FormControl";
 import FilledInput from "@mui/material/FilledInput";
-import InputLabel from "@mui/material/InputLabel";
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import { useAuth } from "../../../context/AuthContext";
+import { GetVw, GetVh, GetResponsiveFontSize } from "../../utils/GeneralHelpers";
+
+
+const student = {
+  firstName: "ישראל",
+  lastName: "ישראל",
+  profileImage: "https://source.unsplash.com/random/100x100?sig=1",
+  email: "jU9Q3@example.com",
+  id: 1,
+  cityCode:1,
+  AddressL : "רחוב ישראל 1",
+  phone: '0541234567',
+  schoolYear: "2022",
+  Enrollment: "2022-2023",
+};
 
 
  const SignIn = ({ onForgotPassword }) => {
+
+    const {user} = useAuth();
     const [showPassword, setShowPassword] = React.useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
   
@@ -122,28 +131,7 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
               }
             />
           </Grid2>
-  
-          <Grid2 item xs={12} sx={{ textAlign: "end" }}>
-            <Box component={"h4"}>או התחבר בעזרת אחד מהאמצעים הבאים</Box>
-          </Grid2>
-          <Grid2
-            item
-            xs={12}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <IconButton sx={{ color: "secondary.main", mx: 1 }}>
-              <GoogleIcon />
-            </IconButton>
-            <IconButton sx={{ color: "secondary.main", mx: 1 }}>
-              <MicrosoftIcon />
-            </IconButton>
-            <IconButton sx={{ color: "secondary.main", mx: 1 }}>
-              <GitHubIcon />
-            </IconButton>
-          </Grid2>
+          
           <Grid2
             item
             xs={12}
@@ -161,6 +149,7 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
               variant="contained"
               color="primary"
               sx={{ mb: 2 }}
+              onClick={() => user.signin(student)}
             >
               התחבר
             </Button>

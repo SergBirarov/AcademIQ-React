@@ -1,22 +1,18 @@
 import React from "react";
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-  Box,
-  Grid2,
-  TextField,
-  Button,
-  IconButton,
-  inputAdornmentClasses,
-  Typography,
-} from "@mui/material";
+import {Box,} from "@mui/material";
 import SignIn from "../components/auth/SignIn";
 import ForgotPassword from "../components/auth/ForgotPassword";
-import { motion } from "framer-motion"; // Framer Motion for animation
+import { motion } from "framer-motion";
+
+
+
+
 
 const LoginPage = () => {
 
   const [showForgotPassword, setShowForgotPassword] = useState(false);
+
 
   return (
     <Box
