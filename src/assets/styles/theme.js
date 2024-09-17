@@ -25,7 +25,7 @@ const theme = createTheme({
     },
     background: {
       default: '#F5F5DC', // Background - beige (main background color)
-      paper: '#FFFFFF', // Paper background, often used for cards
+      paper: '#F5f5f5', // Paper background, often used for cards
     },
     action: {
       active: '#4169E1', // Button1 - royal blue (main button color)

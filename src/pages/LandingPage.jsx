@@ -31,6 +31,16 @@ const Section = ({ children, animation }) => (
       </Grid2>
     </Box>
   );
+
+  /**
+   * Box - בשביל כל 
+   * grid container
+   * Grid2 item - בשביל כל 
+   * תוכן 
+   * Grid
+  * 
+   * 
+   */
   
 
   
