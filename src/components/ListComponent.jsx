@@ -24,7 +24,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
-function ListComponent({ items, userType }) { // Add userType prop
+function ListComponent({ items, userType }) { 
     return (
         <TableContainer sx={{ width: "50vw" }} component={Paper}>
             <Table stickyHeader aria-label="sticky table">

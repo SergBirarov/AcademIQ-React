@@ -8,7 +8,7 @@ import './index.css'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-    <App />
+      <App />
     </AuthProvider>
   </StrictMode>,
 )

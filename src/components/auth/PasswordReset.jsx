@@ -23,7 +23,7 @@ const PasswordReset = () => {
 
     const [searchParams, setSearchParams] = useSearchParams();
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
 
     const handleClickShowPassword = () => {

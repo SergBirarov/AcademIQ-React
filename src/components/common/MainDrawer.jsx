@@ -1,4 +1,4 @@
-import * as React  from 'react';
+import * as React from 'react';
 import { useState } from 'react';
 import Box from '@mui/material/Box';
 import { Grid2 } from '@mui/material';
@@ -31,50 +31,52 @@ import LogOutBtn from './LogOutBtn';
 const drawerWidth = 220;
 
 const StudentMenu = () => {
-  let icons = [<BungalowIcon />, <TableChartIcon />,<MessageIcon />, <HistoryEduIcon />, <PersonPinIcon />];  
+  let icons = [<BungalowIcon />, <TableChartIcon />, <MessageIcon />, <HistoryEduIcon />, <PersonPinIcon />];
   let texts = ['עמוד הבית', 'לוח מודעות', 'הודעות ', 'ציונים', 'פרופיל'];
 
   return (
-      <List >
-          {texts.map((text, index) => (
-            <ListItem key={text} disablePadding >
-              <ListItemButton>
-                <ListItemIcon sx={{ justifyContent: 'center', minWidth: 'auto', marginLeft: 1  }}>
-                  {icons[index]}
-                </ListItemIcon>
-                <ListItemText sx={{ textAlign: 'right', marginRight: 1, flexGrow: 1
-                }}>{text}</ListItemText>
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-    )
+    <List >
+      {texts.map((text, index) => (
+        <ListItem key={text} disablePadding >
+          <ListItemButton>
+            <ListItemIcon sx={{ justifyContent: 'center', minWidth: 'auto', marginLeft: 1 }}>
+              {icons[index]}
+            </ListItemIcon>
+            <ListItemText sx={{
+              textAlign: 'right', marginRight: 1, flexGrow: 1
+            }}>{text}</ListItemText>
+          </ListItemButton>
+        </ListItem>
+      ))}
+    </List>
+  )
 }
 
-const AdminMenu = () =>{
+const AdminMenu = () => {
   const icons = [<HowToRegIcon />, <BiotechIcon />, <GradingIcon />];
   const texts = ['בדיקת נוכחות', 'העלאת חומרי לימוד', 'פרסום ציונים'];
-  return(
+  return (
     <>
-    <Divider />
-    <List >
-          {texts.map((text, index) => (
-            <ListItem key={text} disablePadding >
-              <ListItemButton>
-                <ListItemIcon sx={{ justifyContent: 'center', minWidth: 'auto', marginLeft: 1  }}>
-                  {icons[index]}
-                </ListItemIcon>
-                <ListItemText sx={{ textAlign: 'right', marginRight: 1, flexGrow: 1
-                }}>{text}</ListItemText>
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+      <Divider />
+      <List >
+        {texts.map((text, index) => (
+          <ListItem key={text} disablePadding >
+            <ListItemButton>
+              <ListItemIcon sx={{ justifyContent: 'center', minWidth: 'auto', marginLeft: 1 }}>
+                {icons[index]}
+              </ListItemIcon>
+              <ListItemText sx={{
+                textAlign: 'right', marginRight: 1, flexGrow: 1
+              }}>{text}</ListItemText>
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
     </>
   )
 };
 
- function MainDrawer() {
+function MainDrawer() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -95,21 +97,21 @@ const AdminMenu = () =>{
         }}
         variant="permanent"
         anchor="right"
-        
+
       >
         <Box sx={{ overflow: 'auto' }}>
-            <ProfileBox />
+          <ProfileBox />
         </Box>
         <Divider />
         <Box>
-                <StudentMenu />
-                <AdminMenu />
-                <Divider />
-</Box>
+          <StudentMenu />
+          <AdminMenu />
+          <Divider />
+        </Box>
         <LogOutBtn />
       </Drawer>
     </Box>
   );
 }
 
-export default  MainDrawer;
+export default MainDrawer;

@@ -4,10 +4,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
-import LoginPage from '../../src/pages/LoginPage';
 import HomePage from '../../src/pages/HomePage';
 import CoursePage from '../../src/pages/CoursePage';
-import NotFoundPage from '../../src/pages/NotFoundPage';
 import ListComponent from './ListComponent';
 
 function TabPanel(props) {
@@ -124,8 +122,6 @@ export default function BasicTabs() {
         >
           <Tab label="Students" />
           <Tab label="Lectures" />
-          <Tab label="Item Three" />
-          <Tab label="Item 4" />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -135,12 +131,6 @@ export default function BasicTabs() {
       <TabPanel value={value} index={1}>
         <ListComponent items={lectures} userType="Lecturer" />
 
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <HomePage />
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <CoursePage />
       </TabPanel>
     </Box>
   );
