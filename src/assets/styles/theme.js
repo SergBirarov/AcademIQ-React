@@ -25,7 +25,7 @@ const theme = createTheme({
       secondary: '#708090', // Text2 - slate gray
     },
     background: {
-      default: '#F5F5DC', // Background - beige (main background color)
+      default: '#d0f2ef', // Background - light turquoise (main background color)
       paper: '#F5f5f5', // Paper background, often used for cards
     },
     action: {
