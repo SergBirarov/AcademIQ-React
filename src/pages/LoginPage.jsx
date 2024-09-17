@@ -28,8 +28,7 @@ const LoginPage = () => {
         width: '100vw',
         height: '100vh',
         position: "relative",
-        overflowX: "hidden",
-        overflowY: "hidden",
+        overflow: "hidden",
       }}
     >
       <video
@@ -37,10 +36,13 @@ const LoginPage = () => {
         loop
         muted
         style={{
-          position: "absolute",
+          position: "fixed",
           width: "100%",
           height: "100%",
           objectFit: "cover",
+          top: 0,
+          left: 0,
+          right: 0,
           zIndex: -1,
         }}
       >

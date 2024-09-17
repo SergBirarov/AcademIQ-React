@@ -1,5 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import { lighten } from '@mui/system';
+import { GetVw, GetVh} from '../../utils/GeneralHelpers';
 
 // Utility function for responsive sizing
 const GetResponsiveSize = (minPx, vwFactor, maxPx) => {
@@ -39,8 +40,8 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Open Sans, sans-serif',
     h1: {
-      fontSize: GetResponsiveSize(36, 2.5, 48), // 36-48px
-      fontWeight: 700, // Bold
+      fontSize: GetResponsiveSize(36, 16, 48), // 36-48px
+      fontWeight: 900, // Bold
       lineHeight: GetResponsiveSize(48, 3, 56), // 48-56px
       letterSpacing: '0.07em',
       marginBottom: GetResponsiveSize(24, 1.5, 32), // 24-32px
@@ -96,26 +97,24 @@ const theme = createTheme({
           '&:hover': {
             backgroundColor: lighten('#4169E1', 0.3), // Lighter shade of the main button color on hover
           },
-          borderRadius: '0.5rem',
-          textTransform: 'none',
         },
         sizeSmall: {
           width: GetResponsiveSize(48, 4, 60), // 48-60px
-          height: '40px',
+          height: GetResponsiveSize(32, 2, 40), // 32-40px
           fontSize: GetResponsiveSize(14, 1.2, 16), // 14-16px
           padding: '0.875rem',
           borderRadius: '0.5rem',
         },
         sizeMedium: {
           width: GetResponsiveSize(100, 8, 120), // 100-120px
-          height: '48px',
+          height: GetResponsiveSize(36, 4, 44), // 36-44px
           fontSize: GetResponsiveSize(16, 1.4, 18), // 16-18px
           padding: '1rem',
           borderRadius: '0.75rem',
         },
         sizeLarge: {
           width: GetResponsiveSize(260, 10, 280), // 140-160px
-          height: '56px',
+          height: GetResponsiveSize(44, 4, 48),
           fontSize: GetResponsiveSize(18, 1.6, 20), // 18-20px
           padding: '1.25rem',
           borderRadius: '1rem',
@@ -197,6 +196,16 @@ const theme = createTheme({
           padding: GetResponsiveSize(8, 1, 12), // 8-12px
           fontSize: GetResponsiveSize(16, 1, 18), // 16-18px
         },
+      },
+    },
+    MuiListItemIcon: {
+      styleOverrides: {
+        root: {
+          minWidth: GetResponsiveSize(24, 2, 24), // 40-48px
+          height: GetResponsiveSize(24, 2, 24), // 40-48px
+          color: '#40E0D0',
+        },
+
       },
     },
   },

@@ -1,7 +1,10 @@
 import React from 'react';
+import MainDrawer from '../components/common/MainDrawer';
 
 const HomePage = () => {
-  return <h1>Welcome back, [Student Name]</h1>;
+  return (
+    <MainDrawer />
+  );
 };
 
 export default HomePage;

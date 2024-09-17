@@ -5,7 +5,8 @@ import 'aos/dist/aos.css';
 import {Grid2, Box, Typography, Paper } from '@mui/material';
 import HeroSection from '../components/common/landing/HeroSection';
 import LandingButton from '../components/common/landing/LandingButton';
-
+import arrowDown from '../assets/json-animations/arrow-down.json';
+import LottieAnimation from '../components/common/LottieAnimation';
 
 const Section = ({ children, animation }) => (
     <Box
@@ -14,14 +15,14 @@ const Section = ({ children, animation }) => (
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 4,
+        padding: 2,
         backgroundColor: 'inherit',
       }}
       data-aos={animation} 
     >
       <Grid2
         container
-        spacing={4}
+        spacing={2}
         sx={{
           maxWidth: 'lg',
           alignItems: 'center',
@@ -32,15 +33,6 @@ const Section = ({ children, animation }) => (
     </Box>
   );
 
-  /**
-   * Box - בשביל כל 
-   * grid container
-   * Grid2 item - בשביל כל 
-   * תוכן 
-   * Grid
-  * 
-   * 
-   */
   
 
   
@@ -49,7 +41,7 @@ const LandingPage = () => {
     useEffect(() => {
         Aos.init({
           duration: 1000,
-          once: false, 
+          once: true, 
           easing: 'ease-in-out',
         });
       }, []);
@@ -61,14 +53,16 @@ const LandingPage = () => {
       className='landing-page-background'
       sx={{
         minHeight: '100vh',
-        width: '100%',
+        maxWidth: '100%',
       }}
     >
     <Section animation="fade-up">
     <HeroSection />
+      <LandingButton />
+      <LottieAnimation animation={arrowDown} />
     </Section>
 
-    <Section animation="fade-right">
+    <Section animation="fade-up">
       
       <Typography variant="h2" color="text.primary" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
             Manage Your Courses Effectively
@@ -81,7 +75,7 @@ const LandingPage = () => {
       />
     </Section>
 
-    <Section animation="fade-left">
+    <Section animation="fade-up">
     <Box
             component="img"
             src="https://academiq-assets.s3.eu-north-1.amazonaws.com/landing2.png"
