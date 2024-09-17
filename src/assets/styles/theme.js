@@ -38,7 +38,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Open Sans, sans-serif',
+    fontFamily: 'Rubik, sans-serif',
     h1: {
       fontSize: GetResponsiveSize(36, 16, 48), // 36-48px
       fontWeight: 900, // Bold
