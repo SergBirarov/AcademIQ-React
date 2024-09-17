@@ -52,8 +52,8 @@ const LandingPage = () => {
     useEffect(() => {
         Aos.init({
           duration: 1000,
-          once: true, 
-          easing: 'ease-in-out',
+          once: false, 
+          easing: 'ease-in-out-back',
         });
       }, []);
 
@@ -61,7 +61,7 @@ const LandingPage = () => {
   return (
     <Box
       component="main"
-      className='landing-page-background'
+      className='body-gradient'
       sx={{
         minHeight: '100vh',
         maxWidth: '100%',
@@ -99,18 +99,6 @@ const LandingPage = () => {
            
     </Section>
 
-      <Section animation="fade-left">
-        <Box
-          component="img"
-          src="https://academiq-assets.s3.eu-north-1.amazonaws.com/landing2.png"
-          alt="Collaborate"
-          className='landing-svg'
-        />
-        <Typography variant="h2" color="text.primary" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
-          Collaborate and Learn Seamlessly
-        </Typography>
-
-      </Section>
 
       <Section animation="fade-up">
         <Box
