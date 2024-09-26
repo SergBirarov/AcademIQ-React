@@ -8,14 +8,12 @@ import NotFoundPage from '../src/pages/NotFoundPage';
 import TabPanel from "../src/components/TabPanel";
 import ChartsOverview from "../src/components/ChartsOverview";
 import PasswordReset from '../src/components/auth/PasswordReset';
-import BubbleMenu from '../src/components/BubbleMenu';
 
 const AppRouter = () => {
 
   return (
     <Router>
       <Routes>
-        <Route path="/1" element={<BubbleMenu />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/passwordreset" element={<PasswordReset />} />
