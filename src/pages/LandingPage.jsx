@@ -110,8 +110,11 @@ const LandingPage = () => {
         <Typography variant="h2" color="text.primary" sx={{ textAlign: { xs: 'center', md: 'left' } }}>
           Join Our Community
         </Typography>
-        <LandingButton />
       </Section>
+      <Box data-aos = "fade-up"  sx={{height: '20vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        
+        <LandingButton />
+      </Box>
     </Box>
   );
 };

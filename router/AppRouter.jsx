@@ -8,6 +8,7 @@ import NotFoundPage from '../src/pages/NotFoundPage';
 import TabPanel from "../src/components/TabPanel";
 import ChartsOverview from "../src/components/ChartsOverview";
 import PasswordReset from '../src/components/auth/PasswordReset';
+import TempComp from '../src/pages/TempComp';
 
 const AppRouter = () => {
 
@@ -26,6 +27,7 @@ const AppRouter = () => {
         <Route path="/personal-area" element={<NotFoundPage />} />
         <Route path="/course/:id" element={<CoursePage />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/temp" element={<TempComp />} />
       </Routes>
     </Router>
   );
