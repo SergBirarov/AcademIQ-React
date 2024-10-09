@@ -8,6 +8,8 @@ import NotFoundPage from '../src/pages/NotFoundPage';
 import ListComponent from "../src/components/ListComponent";
 import TabPanel from "../src/components/TabPanel";
 import ChartsOverview from "../src/components/ChartsOverview";
+import PasswordReset from '../src/components/auth/PasswordReset';
+import TempComp from '../src/pages/TempComp';
 
 const AppRouter = () => {
 
@@ -20,6 +22,7 @@ const AppRouter = () => {
         <Route path="/home" element={<HomePage />} />
         <Route path="/course/:id" element={<CoursePage />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/temp" element={<TempComp />} />
       </Routes>
     </Router>
   );
