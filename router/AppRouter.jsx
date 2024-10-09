@@ -8,7 +8,7 @@ import NotFoundPage from '../src/pages/NotFoundPage';
 import ListComponent from "../src/components/ListComponent";
 import TabPanel from "../src/components/TabPanel";
 import ChartsOverview from "../src/components/ChartsOverview";
-import PasswordReset from '../src/components/auth/PasswordReset';
+// import PasswordReset from '../src/components/auth/PasswordReset';
 import TempComp from '../src/pages/TempComp';
 
 const AppRouter = () => {
