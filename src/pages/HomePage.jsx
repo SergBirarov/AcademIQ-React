@@ -1,28 +1,35 @@
 import React from 'react';
-import MainDrawer from '../components/common/MainDrawer';
+import { Container } from '@mui/system';
 import MainStudentScreen from '../components/common/MainStudentScreen';
 import { Box, Grid2 } from '@mui/material';
 import RepeatedActionsHome from '../components/common/RepeatedActionsHome';
+import MainRectangleContainer from '../components/common/MainRectangleContainer';
+import MainProfilePanel from '../components/common/profile/profilePanel/MainProfilePanel';
+import { useUser } from '../../context/UserContext';
+import { Login } from '@mui/icons-material';
+import LoginPage from './LoginPage';
 
 
-const drawerWidth = 240;
 const HomePage = () => {
+  const { user } = useUser();
+
+  if(!user) {
+    return (
+      <LoginPage />
+    )
+  }
+
+
   return (
-    <Box component={"main"} sx={{  width: `calc(100% - ${drawerWidth}px)`, mr: `${drawerWidth}px`, direction: "rtl" }}>
-      <Grid2 container spacing={8}>
-    <MainDrawer />
-    <Box component={"section"}>
-    <Grid2 item xs={12} sm={6} md={8}>
-    <MainStudentScreen />
-    </Grid2>
-    </Box>
-    <Box component={"section"}>
-    <Grid2 item xs={12} sm={6} md={4}>
-    <RepeatedActionsHome />
-    </Grid2>
-    </Box>
-    </Grid2>
-    </Box>
+    <Container component="main" sx={{ flexGrow: 1, p: 3, display: 'flex', height: '100vh' }}>
+      <MainRectangleContainer>
+        
+      </MainRectangleContainer>
+
+      <Box sx={{ width: '20%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <MainProfilePanel />
+      </Box>
+    </Container>
   );
 };
 

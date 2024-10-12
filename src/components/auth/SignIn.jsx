@@ -9,33 +9,19 @@ import {
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import InputAdornment from "@mui/material/InputAdornment";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import LockIcon from "@mui/icons-material/Lock";
 import FilledInput from "@mui/material/FilledInput";
-import { useAuth } from "../../../context/AuthContext";
-import { GetVw, GetVh, GetResponsiveFontSize } from "../../utils/GeneralHelpers";
+import { useUser } from "../../../context/UserContext";
 
-
-const student = {
-  firstName: "ישראל",
-  lastName: "ישראל",
-  profileImage: "https://source.unsplash.com/random/100x100?sig=1",
-  email: "jU9Q3@example.com",
-  id: 1,
-  cityCode:1,
-  AddressL : "רחוב ישראל 1",
-  phone: '0541234567',
-  schoolYear: "2022",
-  Enrollment: "2022-2023",
-};
 
 
 const SignIn = ({ onForgotPassword }) => {
   const [userId, setUserId] = React.useState("");
   const [password, setPassword] = React.useState("");
-
   const [showPassword, setShowPassword] = React.useState(false);
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const { setUser } = useUser();
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
@@ -64,7 +50,11 @@ const SignIn = ({ onForgotPassword }) => {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        //localStorage.setItem('token', data.token); 
+        const userData = data.userData || data.user;
+        localStorage.setItem('token', data.token); 
+        localStorage.setItem('user', JSON.stringify(userData));
+        setUser(userData);
+        window.location.href = "/home";
 
       } else {
         const errorData = await response.json();
@@ -118,18 +108,18 @@ const SignIn = ({ onForgotPassword }) => {
             fullWidth
             label="מספר זהות"
             variant="outlined"
-            slotProps={{
-              input: {
-                style: { direction: "rtl" },
-                startAdornment: (
-                  <InputAdornment position="end">
-                    <AccountCircle
-                      sx={{ color: "action.active", mr: 1, my: 0.5 }}
-                    />
-                  </InputAdornment>
-                ),
-              },
-            }}
+            // slotProps={{
+            //   input: {
+            //     style: { direction: "rtl" },
+            //     startAdornment: (
+            //       <InputAdornment position="end">
+            //         <AccountCircle
+            //           sx={{ color: "action.active", mr: 1, my: 0.5 }}
+            //         />
+            //       </InputAdornment>
+            //     ),
+            //   },
+            // }}
             sx={{ mb: 2, direction: "rtl" }}
           />
         </Grid2>
@@ -139,16 +129,16 @@ const SignIn = ({ onForgotPassword }) => {
             fullWidth
             label="סיסמה"
             variant="outlined"
-            slotProps={{
-              input: {
-                style: { direction: "rtl" },
-                startAdornment: (
-                  <InputAdornment position="end">
-                    <LockIcon />
-                  </InputAdornment>
-                ),
-              },
-            }}
+            // slotProps={{
+            //   input: {
+            //     style: { direction: "rtl" },
+            //     startAdornment: (
+            //       <InputAdornment position="end">
+            //         <LockIcon />
+            //       </InputAdornment>
+            //     ),
+            //   },
+            // }}
             sx={{ mb: 2, backgroundColor: "background.paper" }}
             type={showPassword ? "text" : "password"}
             endAdornment={
@@ -170,24 +160,7 @@ const SignIn = ({ onForgotPassword }) => {
         <Grid2 item xs={12} sx={{ textAlign: "end" }}>
           <Box component={"h4"}>או התחבר בעזרת אחד מהאמצעים הבאים</Box>
         </Grid2>
-        <Grid2
-          item
-          xs={12}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <IconButton sx={{ color: "secondary.main", mx: 1 }}>
-            <GoogleIcon />
-          </IconButton>
-          <IconButton sx={{ color: "secondary.main", mx: 1 }}>
-            <MicrosoftIcon />
-          </IconButton>
-          <IconButton sx={{ color: "secondary.main", mx: 1 }}>
-            <GitHubIcon />
-          </IconButton>
-        </Grid2>
+        
         <Grid2
           item
           xs={12}

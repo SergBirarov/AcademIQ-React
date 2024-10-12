@@ -1,43 +1,28 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { Grid2 } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
-
-
-//TODO: logic for pull data from backend
-//TODO: make it responsive
-
+import CircularProfilePicture from '../common/profile/profilePanel/CircularProfilePicture';
+import { useUser } from '../../../context/UserContext';
+import ProfilePanel from './profile/ProfilePanel';
 export default function ProfileBox() {
-    let student = {
-        name: " ישראלי ישראל",
-        degreeName: "הנדסת תכנה",
-        schoolName: "המרכז האקדמי רופין",
-        profileImage: "https://source.unsplash.com/random/100x100?sig=1",
-    }
+  const { user } = useUser();
+    
     return (
-        <Box component={"section"} sx={{ padding: 2, direction: 'rtl', bgcolor: 'background.paper', borderRadius: 2 }}>
-        <Grid2 container alignItems="center" spacing={2} sx={{ display:'flex', }}>
+        <Box component={"section"} sx={{padding: 2, direction: 'rtl', bgcolor: 'background.paper'}}>
+        <Grid2 container alignItems="center" spacing={2} sx={{ display:'flex' }}>
           <Grid2 item xs={4}>
-            <Avatar
-              alt={student.name}
-              src={student.profileImage}
-              sx={{
-                width: 40,
-                height: 40,
-                boxShadow: 3,
-              }}
-            />
+            <CircularProfilePicture image={user.picture_URL} size="small" />
           </Grid2>
           <Grid2 item xs={8}>
             <Typography variant="h6" sx={{ fontWeight: 700 }}>
-              {student.name}
+              {user.firstName} {user.lastName}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {student.degreeName}
+             הנדסאי תכנה
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {student.schoolName}
+            המכללה הטכנולוגית רופין
             </Typography>
           </Grid2>
         </Grid2>

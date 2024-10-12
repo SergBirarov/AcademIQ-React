@@ -1,14 +1,24 @@
 
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+body, html, #root{
+  box-sizing: border-box; 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  
 }
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body{
+  background: linear-gradient(135deg, #268cf1, #40E0D0, #FFD700);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
 
 
 .landing-svg{
@@ -20,17 +30,6 @@
   
 }
 
-.body-gradient {
-background: linear-gradient(135deg, #003366, #008080, #40E0D0, #FF7F50);
-  background-size: 400% 400%;
-  animation: gradientAnimation 15s ease alternate infinite;
-}
-
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 
 
 
