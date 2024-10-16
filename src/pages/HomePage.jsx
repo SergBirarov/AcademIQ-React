@@ -1,12 +1,10 @@
-import React from 'react';
 import { Container } from '@mui/system';
-import MainStudentScreen from '../components/common/MainStudentScreen';
-import { Box, Grid2 } from '@mui/material';
-import RepeatedActionsHome from '../components/common/RepeatedActionsHome';
+import { Box } from '@mui/material';
+// import RepeatedActionsHome from '../components/common/RepeatedActionsHome';
 import MainRectangleContainer from '../components/common/MainRectangleContainer';
 import MainProfilePanel from '../components/common/profile/profilePanel/MainProfilePanel';
 import { useUser } from '../../context/UserContext';
-import { Login } from '@mui/icons-material';
+// import { Login } from '@mui/icons-material';
 import LoginPage from './LoginPage';
 
 

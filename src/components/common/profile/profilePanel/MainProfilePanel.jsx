@@ -1,17 +1,13 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
-import { Grid2 } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import CircularProfilePicture from './CircularProfilePicture';
-import ProfileBox from '../../ProfileBox'
-import ProfilePanel from '../ProfilePanel';
+import ProfilePanel from './ProfilePanel';
+import ProfileMenu from '../ProfileMenu';
 
 const StyledBox = styled(Box)(({ theme }) => ({
     display: 'flex',
     height: '100%',
     flexDirection: 'column',
+    justifyContent: 'flex-start',
     width: '100%',
     borderRadius: '16px',
     borderTopLeftRadius: '0px',
@@ -23,7 +19,12 @@ const StyledBox = styled(Box)(({ theme }) => ({
 export default function MainProfilePanel() {
     return (
         <StyledBox>
+            <Box sx={{ width: '100%', flexShrink: 0 }}>
             <ProfilePanel />
+            </Box>
+            <Box sx={{ width: '100%', flexShrink: 1 }}>
+            <ProfileMenu />
+            </Box>
     </StyledBox>
     );
 }

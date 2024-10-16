@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Box, styled, Typography, Paper } from '@mui/material';
-import { GetVw, GetVh } from '../utils/GeneralHelpers';
+import { GetVw, GetVh } from '../../utils/GeneralHelpers';
 import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 

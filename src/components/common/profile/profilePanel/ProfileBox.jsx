@@ -4,7 +4,7 @@ import { Grid2 } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import CircularProfilePicture from '../common/profile/profilePanel/CircularProfilePicture';
 import { useUser } from '../../../context/UserContext';
-import ProfilePanel from './profile/ProfilePanel';
+import ProfilePanel from './profile/profilePanel/ProfilePanel';
 export default function ProfileBox() {
   const { user } = useUser();
     
