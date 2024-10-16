@@ -1,0 +1,30 @@
+{
+"students":[
+{
+    "Id": 111,
+    "FirstName": "מיכאל",
+    "LastName": "קולומיזה",
+    "School_Year": 2,
+    "Phone": "1234567890",
+    "Email": "1@1.com",
+    "Picture_URL": "https://images.unsplash.com/photo-1725755532430-417b990e5358?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxN3x8fGVufDB8fHx8fA%3D%3D",
+    "Address": "עיר רחוב 12",
+    "City_Code": 1,
+    "Enrollment": "2023-09-01"
+}
+], 
+"professors":[
+{
+    "Id": 222,
+    "FirstName": "Sergey",
+    "LastName": "Bir",  
+    "DateOfBirth": "1989-10-10",
+    "Address": "Nizhny Novgorod 12",
+    "Phone": "1234567890",
+    "Email": "89@1.com",
+    "City_Code": 1,
+    "Enrollment": "2023-09-01"
+
+}]
+}
+
